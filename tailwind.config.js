@@ -4,12 +4,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                // bgPrimary: '#050505',
-                bgPrimary: '#0B0C10',
-                bgSecondary: '#1F2833',
-                greyHover: '#303234',
-                primary: '#FE007E',
-                turquiose: '#66FCF1',
+                bgPrimary: '#323031',
+                jsYellow: '#F7DF1E',
             },
         },
         fontFamily: {
