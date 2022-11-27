@@ -1,6 +1,7 @@
 import { CardContent } from 'entity/Card';
 
 import variablesContent from './Variables';
+import functionsContent from './Functions';
 
 interface Content {
     title: string;
@@ -10,8 +11,12 @@ interface Content {
 
 const contents: Content[] = [{
     title: 'Variables',
-    desc: 'Variables are declared using the keyword const for static variables and let for mutable variables.',
+    desc: 'Variables can be declared in 2 ways',
     content: variablesContent,
+}, {
+    title: 'Functions',
+    desc: 'Functions can be declared in 2 ways',
+    content: functionsContent,
 }];
 
 export default contents;

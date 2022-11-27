@@ -15,10 +15,10 @@ car = 'Toyota';
 console.log(car); //Toyota`;
 
 const variablesContent: CardContent[] = [{
-    text: 'Declaring static variables',
+    text: 'Static variables',
     code: staticVarCode,
 }, {
-    text: 'Declaring mutable variables',
+    text: 'Mutable variables',
     code: mutableVarCode,
 }];
 
