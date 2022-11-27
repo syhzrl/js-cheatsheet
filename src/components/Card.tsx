@@ -55,7 +55,7 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     const { title, desc, content } = props;
 
     return (
-        <div className=''>
+        <div>
             <div className='bg-bgSecondary rounded-t-md w-fit px-5 py-1 text-xl'>
                 {title}
             </div>

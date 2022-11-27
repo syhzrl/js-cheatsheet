@@ -11,7 +11,7 @@ const DashboardScreen: FunctionComponent = () => {
             <div className='flex'>
                 <NavMenu />
 
-                <div className='w-full flex flex-wrap items-center justify-center p-5 gap-5'>
+                <div className='w-full flex flex-wrap items-start justify-center p-5 gap-5'>
                     {contents.map(item => {
                         const { title, desc, content } = item;
 

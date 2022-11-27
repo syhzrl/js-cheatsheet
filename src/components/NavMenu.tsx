@@ -23,6 +23,7 @@ const NavMenuButton: FunctionComponent<NavMenuButtonProps> = (props: NavMenuButt
 const NavMenu: FunctionComponent = () => {
     const navMenuButtonsLabel = [
         'Variables',
+        'Functions',
         'String Methods',
         'Number Methods',
         'Array Methods',
