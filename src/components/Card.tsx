@@ -1,10 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext, useRef, useEffect } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 import CopyIcon from 'assets/icons/copy.svg';
 
 import { CardContent } from 'entity/Card';
+import { RefsContext } from 'context/Refs';
 
 interface CardContentProps {
     title: string;
@@ -13,6 +14,7 @@ interface CardContentProps {
 
 const CardContent: FunctionComponent<CardContentProps> = (props: CardContentProps) => {
     const { title, code } = props;
+
     return (
         <div className='flex flex-col gap-1'>
             <div className='w-full text-lg flex justify-between'>
@@ -54,8 +56,31 @@ interface CardProps {
 const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     const { title, desc, content } = props;
 
+    const ref = useRef<HTMLDivElement | null>(null);
+
+    const {
+        setVarRef,
+        setFuncRef,
+        setStringRef,
+        setNumRef,
+    } = useContext(RefsContext);
+
+    useEffect(() => {
+        if (ref) {
+            if (ref.current) {
+                switch (ref.current.id) {
+                    case 'Variables': setVarRef(ref); break;
+                    case 'Functions': setFuncRef(ref); break;
+                    case 'String Methods': setStringRef(ref); break;
+                    case 'Number Methods': setNumRef(ref); break;
+                    default:
+                }
+            }
+        }
+    }, [ref, setVarRef, setFuncRef, setStringRef, setNumRef]);
+
     return (
-        <div>
+        <div ref={ref} id={title} className='scroll-m-2'>
             <div className='bg-bgSecondary rounded-t-md w-fit px-5 py-1 text-xl'>
                 {title}
             </div>
