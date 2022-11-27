@@ -22,7 +22,6 @@ const NavMenuButton: FunctionComponent<NavMenuButtonProps> = (props: NavMenuButt
 
 const NavMenu: FunctionComponent = () => {
     const navMenuButtonsLabel = [
-        'Data Types',
         'Variables',
         'String Methods',
         'Number Methods',
@@ -34,7 +33,7 @@ const NavMenu: FunctionComponent = () => {
     ];
 
     return (
-        <div className='bg-[#1e1d1d] text-white w-1/5 sticky top-0 flex flex-col items-center h-screen'>
+        <div className='bg-bgSecondary text-white w-1/5 sticky top-0 flex flex-col items-center h-screen'>
             <div className='text-jsYellow p-4 text-2xl flex flex-col justify-center items-center w-full space-y-3'>
                 <div className='flex justify-center items-end space-x-3'>
                     <JsIcon
