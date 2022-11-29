@@ -39,6 +39,7 @@ const CardContent: FunctionComponent<CardContentProps> = (props: CardContentProp
                     width: '100%',
                     margin: 0,
                     display: 'flex',
+                    fontSize: '16px',
                 }}
             >
                 {code}

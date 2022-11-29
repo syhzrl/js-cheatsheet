@@ -7,9 +7,9 @@ const Home: FunctionComponent = () => {
     return (
         <>
             <Head>
-                <title>NextJS FE Static</title>
-                <meta name='description' content='NextJS FE Static' />
-                <link rel='icon' href='/favicon.ico' />
+                <title>Javascript Cheatsheet</title>
+                <meta name='description' content='Javascript Cheatsheet' />
+                <link rel='icon' href='/javascript.ico' />
             </Head>
             <DashboardScreen />
         </>

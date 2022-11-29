@@ -3,7 +3,7 @@ import { CardContent } from 'entity/Card';
 const staticVarCode = `const name = 'Hangman'; //string
 const age = 24; //number
 const isPilot = true; //boolean
-const arrayOfPilotsName = ['Maverick', 'Rooster', 'Pheonix']; //array
+const pilots = ['Maverick', 'Rooster']; // array
 const fighterPilot = {
     name: 'Bob',
     age: 22,

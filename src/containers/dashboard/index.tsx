@@ -5,8 +5,11 @@ import { RefsContext } from 'context/Refs';
 
 import useKeyPress from 'hooks/useKeyPress';
 
-import contents from 'assets/contents';
 import KeyboardIcon from 'assets/icons/keyboard.svg';
+import variablesContent from 'assets/contents/Variables';
+import functionsContent from 'assets/contents/Functions';
+import stringContent from 'assets/contents/String';
+import numbersContent from 'assets/contents/Number';
 
 import NavMenu from 'components/NavMenu';
 import Card from 'components/Card';
@@ -85,20 +88,37 @@ const DashboardScreen: FunctionComponent = () => {
             <div className='flex'>
                 <NavMenu />
 
-                <div className='w-full grid grid-cols-2 p-20 gap-5'>
-                    {contents.map(item => {
-                        const { title, desc, content } = item;
+                <div className='flex w-full p-5 gap-5 justify-center'>
+                    <div className='flex flex-col gap-5'>
+                        <Card
+                            title='Variables'
+                            desc='Variables can be declared in 2 ways'
+                            content={variablesContent}
+                        />
 
-                        return (
-                            <Card
-                                key={title}
-                                title={title}
-                                desc={desc}
-                                content={content}
-                            />
-                        );
-                    })}
+                        <Card
+                            title='String Methods'
+                            desc='Strings can be manipulated with a few different methods'
+                            content={stringContent}
+                        />
+                    </div>
+
+                    <div className='flex flex-col gap-5'>
+
+                        <Card
+                            title='Functions'
+                            desc='Variables can be declared in 2 ways'
+                            content={functionsContent}
+                        />
+
+                        <Card
+                            title='Number Methods'
+                            desc='Numbers can be manipulated with a few different methods'
+                            content={numbersContent}
+                        />
+                    </div>
                 </div>
+
             </div>
 
             <AnimatePresence
