@@ -16,6 +16,7 @@ import Card from 'components/Card';
 import KeyboardShortcutModal from 'components/KeyboardShortcutModal';
 import arraysContent from 'assets/contents/Array';
 import objectsContent from 'assets/contents/Object';
+import operatorsContent from 'assets/contents/Operators';
 
 const DashboardScreen: FunctionComponent = () => {
     const {
@@ -129,6 +130,12 @@ const DashboardScreen: FunctionComponent = () => {
                             title='Object Methods'
                             desc='Objects can be accessed with a few different methods'
                             content={objectsContent}
+                        />
+
+                        <Card
+                            title='Operators & Conditionals'
+                            desc='Javascript introduces a few operators and conditional statements'
+                            content={operatorsContent}
                         />
                     </div>
                 </div>
