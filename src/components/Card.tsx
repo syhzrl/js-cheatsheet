@@ -3,6 +3,15 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 import CopyIcon from 'assets/icons/copy.svg';
+import VariableIcon from 'assets/icons/variable.svg';
+import FunctionIcon from 'assets/icons/function.svg';
+import StringIcon from 'assets/icons/string.svg';
+import NumberIcon from 'assets/icons/arithmetics.svg';
+import ArrayIcon from 'assets/icons/array.svg';
+import ObjectIcon from 'assets/icons/object.svg';
+import OperatorIcon from 'assets/icons/operator.svg';
+import IterationIcon from 'assets/icons/refresh.svg';
+import DateIcon from 'assets/icons/date.svg';
 
 import { CardContent } from 'entity/Card';
 import { RefsContext } from 'context/Refs';
@@ -39,6 +48,8 @@ const CardContent: FunctionComponent<CardContentProps> = (props: CardContentProp
                     width: '100%',
                     margin: 0,
                     display: 'flex',
+                    fontSize: '16px',
+                    borderRadius: '6px',
                 }}
             >
                 {code}
@@ -63,6 +74,11 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
         setFuncRef,
         setStringRef,
         setNumRef,
+        setArrRef,
+        setObjRef,
+        setOpRef,
+        setIteRef,
+        setDateRef,
     } = useContext(RefsContext);
 
     useEffect(() => {
@@ -71,17 +87,38 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
                 switch (ref.current.id) {
                     case 'Variables': setVarRef(ref); break;
                     case 'Functions': setFuncRef(ref); break;
-                    case 'String Methods': setStringRef(ref); break;
-                    case 'Number Methods': setNumRef(ref); break;
+                    case 'Strings': setStringRef(ref); break;
+                    case 'Numbers': setNumRef(ref); break;
+                    case 'Arrays': setArrRef(ref); break;
+                    case 'Objects': setObjRef(ref); break;
+                    case 'Conditionals': setOpRef(ref); break;
+                    case 'Iterations': setIteRef(ref); break;
+                    case 'Date': setDateRef(ref); break;
                     default:
                 }
             }
         }
-    }, [ref, setVarRef, setFuncRef, setStringRef, setNumRef]);
+    }, [ref, setVarRef, setFuncRef, setStringRef, setNumRef, setArrRef, setObjRef, setOpRef, setIteRef, setDateRef]);
+
+    const renderIcon = () => {
+        switch (title) {
+            case 'Variables': return <VariableIcon />;
+            case 'Functions': return <FunctionIcon />;
+            case 'Strings': return <StringIcon />;
+            case 'Numbers': return <NumberIcon />;
+            case 'Arrays': return <ArrayIcon />;
+            case 'Objects': return <ObjectIcon />;
+            case 'Conditionals': return <OperatorIcon />;
+            case 'Iterations': return <IterationIcon />;
+            case 'Date': return <DateIcon />;
+            default: return <FunctionIcon />;
+        }
+    };
 
     return (
         <div ref={ref} id={title} className='scroll-m-2'>
-            <div className='bg-bgSecondary rounded-t-md w-fit px-5 py-1 text-xl'>
+            <div className='bg-bgSecondary rounded-t-md w-fit px-5 py-1 text-xl flex items-center gap-2'>
+                {renderIcon()}
                 {title}
             </div>
 

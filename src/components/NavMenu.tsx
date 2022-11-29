@@ -3,6 +3,15 @@ import React, { FunctionComponent, useContext, useState, useEffect } from 'react
 import { RefsContext } from 'context/Refs';
 
 import JsIcon from 'assets/icons/js.svg';
+import VariableIcon from 'assets/icons/variable.svg';
+import FunctionIcon from 'assets/icons/function.svg';
+import StringIcon from 'assets/icons/string.svg';
+import NumberIcon from 'assets/icons/arithmetics.svg';
+import ArrayIcon from 'assets/icons/array.svg';
+import ObjectIcon from 'assets/icons/object.svg';
+import OperatorIcon from 'assets/icons/operator.svg';
+import IterationIcon from 'assets/icons/refresh.svg';
+import DateIcon from 'assets/icons/date.svg';
 
 import packageJson from '../../package.json';
 
@@ -18,6 +27,11 @@ const NavMenuButton: FunctionComponent<NavMenuButtonProps> = (props: NavMenuButt
         funcRef,
         stringRef,
         numRef,
+        arrRef,
+        objRef,
+        opRef,
+        iteRef,
+        dateRef,
     } = useContext(RefsContext);
 
     const [ref, setRef] = useState<React.MutableRefObject<HTMLDivElement | null>>();
@@ -26,11 +40,31 @@ const NavMenuButton: FunctionComponent<NavMenuButtonProps> = (props: NavMenuButt
         switch (label) {
             case 'Variables': setRef(varRef); break;
             case 'Functions': setRef(funcRef); break;
-            case 'String Methods': setRef(stringRef); break;
-            case 'Number Methods': setRef(numRef); break;
+            case 'Strings': setRef(stringRef); break;
+            case 'Numbers': setRef(numRef); break;
+            case 'Arrays': setRef(arrRef); break;
+            case 'Objects': setRef(objRef); break;
+            case 'Conditionals': setRef(opRef); break;
+            case 'Iterations': setRef(iteRef); break;
+            case 'Date': setRef(dateRef); break;
             default:
         }
-    }, [label, varRef, funcRef, stringRef, numRef]);
+    }, [label, varRef, funcRef, stringRef, numRef, arrRef, objRef, opRef, iteRef, dateRef]);
+
+    const renderIcon = () => {
+        switch (label) {
+            case 'Variables': return <VariableIcon />;
+            case 'Functions': return <FunctionIcon />;
+            case 'Strings': return <StringIcon />;
+            case 'Numbers': return <NumberIcon />;
+            case 'Arrays': return <ArrayIcon />;
+            case 'Objects': return <ObjectIcon />;
+            case 'Conditionals': return <OperatorIcon />;
+            case 'Iterations': return <IterationIcon />;
+            case 'Date': return <DateIcon />;
+            default: return <FunctionIcon />;
+        }
+    };
 
     const onClickHandler = () => {
         if (ref) {
@@ -43,9 +77,10 @@ const NavMenuButton: FunctionComponent<NavMenuButtonProps> = (props: NavMenuButt
     return (
         <button
             type='button'
-            className='bg-transparent p-2 hover:bg-jsYellow hover:text-bgPrimary transition-all duration-300 text-xl rounded-lg w-full'
+            className='p-2 hover:bg-jsYellow hover:text-bgPrimary transition-all duration-300 text-xl rounded-md w-full flex items-center justify-start gap-2'
             onClick={onClickHandler}
         >
+            {renderIcon()}
             <p>
                 {label}
             </p>
@@ -57,13 +92,13 @@ const NavMenu: FunctionComponent = () => {
     const navMenuButtonsLabel = [
         'Variables',
         'Functions',
-        'String Methods',
-        'Number Methods',
-        'Array Methods',
-        'Object Methods',
-        'Loops',
-        'Conditions',
-        'Conditional Statements',
+        'Strings',
+        'Numbers',
+        'Arrays',
+        'Objects',
+        'Conditionals',
+        'Iterations',
+        'Date',
     ];
 
     return (
@@ -84,7 +119,7 @@ const NavMenu: FunctionComponent = () => {
                     <div className='w-full border-b border-jsYellow' />
                 </div>
 
-                <div className='p-4 flex flex-col space-y-2'>
+                <div className='p-4 flex flex-col space-y-3'>
                     {navMenuButtonsLabel.map(item => {
                         return (
                             <NavMenuButton key={item} label={item} />

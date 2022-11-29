@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment } from 'react';
+import React, { FunctionComponent } from 'react';
 import { motion } from 'framer-motion';
 
 interface KeyboardShortcut {
@@ -7,19 +7,34 @@ interface KeyboardShortcut {
 }
 
 const shortcuts: KeyboardShortcut[] = [{
-    key: 'Ctrl + F',
+    key: 'Alt + 1',
     desc: 'Scroll to Functions section',
 }, {
-    key: 'Ctrl + V',
+    key: 'Alt + 2',
     desc: 'Scroll to Variables section',
 }, {
-    key: 'Ctrl + S',
-    desc: 'Scroll to String Methods section',
+    key: 'Alt + 3',
+    desc: 'Scroll to Strings section',
 }, {
-    key: 'Ctrl + M',
-    desc: 'Scroll to Number Methods section',
+    key: 'Alt + 4',
+    desc: 'Scroll to Numbers section',
 }, {
-    key: 'Ctrl + K',
+    key: 'Alt + Q',
+    desc: 'Scroll to Arrays section',
+}, {
+    key: 'Alt + W',
+    desc: 'Scroll to Objects section',
+}, {
+    key: 'Alt + E',
+    desc: 'Scroll to Conditionals section',
+}, {
+    key: 'Alt + R',
+    desc: 'Scroll to Iterations section',
+}, {
+    key: 'Alt + D',
+    desc: 'Scroll to Date section',
+}, {
+    key: 'Alt + K',
     desc: 'Toggle this modal',
 }, {
     key: 'Esc',
@@ -67,19 +82,19 @@ const KeyboardShortcutModal: FunctionComponent<KeyboardShortcutModalProps> = (pr
                 initial='hidden'
                 animate='visible'
                 exit='exit'
-                className='bg-bgSecondary flex flex-col items-center justify-center text-white p-5 rounded-md gap-5'
+                className='bg-bgSecondary flex flex-col items-center justify-center text-white p-5 rounded-md gap-5 w-1/2'
             >
                 <p className='text-2xl'>Keyboard Shortcuts</p>
 
-                <div className='grid grid-cols-2 gap-5 text-xl w-4/5'>
+                <div className='flex flex-col text-xl w-4/5 gap-2'>
                     {shortcuts.map(item => {
                         const { key, desc } = item;
 
                         return (
-                            <Fragment key={key}>
-                                <p>{key}</p>
-                                <p>{desc}</p>
-                            </Fragment>
+                            <div key={key} className='flex justify-center'>
+                                <p className='w-6/12 text-center'>{key}</p>
+                                <p className='w-6/12'>{desc}</p>
+                            </div>
                         );
                     })}
                 </div>
