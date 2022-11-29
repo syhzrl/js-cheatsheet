@@ -17,6 +17,8 @@ import KeyboardShortcutModal from 'components/KeyboardShortcutModal';
 import arraysContent from 'assets/contents/Array';
 import objectsContent from 'assets/contents/Object';
 import operatorsContent from 'assets/contents/Operators';
+import iterationsContent from 'assets/contents/Iterations';
+import dateContent from 'assets/contents/Date';
 
 const DashboardScreen: FunctionComponent = () => {
     const {
@@ -110,6 +112,12 @@ const DashboardScreen: FunctionComponent = () => {
                             desc='Array can be manipulated with a few different methods'
                             content={arraysContent}
                         />
+
+                        <Card
+                            title='Iterations'
+                            desc='Javascript introduces a few iteration methods'
+                            content={iterationsContent}
+                        />
                     </div>
 
                     <div className='flex flex-col gap-5'>
@@ -136,6 +144,12 @@ const DashboardScreen: FunctionComponent = () => {
                             title='Operators & Conditionals'
                             desc='Javascript introduces a few operators and conditional statements'
                             content={operatorsContent}
+                        />
+
+                        <Card
+                            title='Date'
+                            desc='Javascript introduces a few methods when dealing with Date objects'
+                            content={dateContent}
                         />
                     </div>
                 </div>

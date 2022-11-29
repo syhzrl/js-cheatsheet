@@ -43,7 +43,7 @@ const NavMenuButton: FunctionComponent<NavMenuButtonProps> = (props: NavMenuButt
     return (
         <button
             type='button'
-            className='bg-transparent p-2 hover:bg-jsYellow hover:text-bgPrimary transition-all duration-300 text-xl rounded-lg w-full'
+            className='p-2 hover:bg-jsYellow hover:text-bgPrimary transition-all duration-300 text-xl rounded-md w-full'
             onClick={onClickHandler}
         >
             <p>
@@ -63,6 +63,7 @@ const NavMenu: FunctionComponent = () => {
         'Object Methods',
         'Operators & Conditionals',
         'Iterations',
+        'Date',
     ];
 
     return (
@@ -83,7 +84,7 @@ const NavMenu: FunctionComponent = () => {
                     <div className='w-full border-b border-jsYellow' />
                 </div>
 
-                <div className='p-4 flex flex-col space-y-2'>
+                <div className='p-4 flex flex-col space-y-3'>
                     {navMenuButtonsLabel.map(item => {
                         return (
                             <NavMenuButton key={item} label={item} />

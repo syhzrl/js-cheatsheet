@@ -40,6 +40,7 @@ const CardContent: FunctionComponent<CardContentProps> = (props: CardContentProp
                     margin: 0,
                     display: 'flex',
                     fontSize: '16px',
+                    borderRadius: '6px',
                 }}
             >
                 {code}
