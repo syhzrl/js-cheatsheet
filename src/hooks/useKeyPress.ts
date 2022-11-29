@@ -14,7 +14,7 @@ const useKeyPress = (keys: string[], callback: (event: KeyboardEvent) => void, n
                 callbackRef.current(event);
             }
 
-            if (event.ctrlKey) {
+            if (event.altKey) {
                 if (keys.some((key: string) => event.key === key)) {
                     event.preventDefault();
                     callbackRef.current(event);

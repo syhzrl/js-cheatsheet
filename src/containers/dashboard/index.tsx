@@ -6,19 +6,20 @@ import { RefsContext } from 'context/Refs';
 import useKeyPress from 'hooks/useKeyPress';
 
 import KeyboardIcon from 'assets/icons/keyboard.svg';
+
 import variablesContent from 'assets/contents/Variables';
 import functionsContent from 'assets/contents/Functions';
 import stringContent from 'assets/contents/String';
 import numbersContent from 'assets/contents/Number';
-
-import NavMenu from 'components/NavMenu';
-import Card from 'components/Card';
-import KeyboardShortcutModal from 'components/KeyboardShortcutModal';
 import arraysContent from 'assets/contents/Array';
 import objectsContent from 'assets/contents/Object';
 import operatorsContent from 'assets/contents/Operators';
 import iterationsContent from 'assets/contents/Iterations';
 import dateContent from 'assets/contents/Date';
+
+import NavMenu from 'components/NavMenu';
+import Card from 'components/Card';
+import KeyboardShortcutModal from 'components/KeyboardShortcutModal';
 
 const DashboardScreen: FunctionComponent = () => {
     const {
@@ -26,12 +27,17 @@ const DashboardScreen: FunctionComponent = () => {
         funcRef,
         stringRef,
         numRef,
+        arrRef,
+        objRef,
+        opRef,
+        iteRef,
+        dateRef,
     } = useContext(RefsContext);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const onKeyPress = (event: KeyboardEvent) => {
-        if (event.key === 'v') {
+        if (event.key === '1') {
             if (varRef) {
                 if (varRef.current) {
                     varRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -39,7 +45,7 @@ const DashboardScreen: FunctionComponent = () => {
             }
         }
 
-        if (event.key === 'f') {
+        if (event.key === '2') {
             if (funcRef) {
                 if (funcRef.current) {
                     funcRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -47,7 +53,7 @@ const DashboardScreen: FunctionComponent = () => {
             }
         }
 
-        if (event.key === 's') {
+        if (event.key === '3') {
             if (stringRef) {
                 if (stringRef.current) {
                     stringRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -55,10 +61,50 @@ const DashboardScreen: FunctionComponent = () => {
             }
         }
 
-        if (event.key === 'm') {
+        if (event.key === '4') {
             if (numRef) {
                 if (numRef.current) {
                     numRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        if (event.key === 'q') {
+            if (arrRef) {
+                if (arrRef.current) {
+                    arrRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        if (event.key === 'w') {
+            if (objRef) {
+                if (objRef.current) {
+                    objRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        if (event.key === 'e') {
+            if (opRef) {
+                if (opRef.current) {
+                    opRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        if (event.key === 'r') {
+            if (iteRef) {
+                if (iteRef.current) {
+                    iteRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        if (event.key === 'd') {
+            if (dateRef) {
+                if (dateRef.current) {
+                    dateRef.current.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         }
@@ -72,7 +118,7 @@ const DashboardScreen: FunctionComponent = () => {
         }
     };
 
-    useKeyPress(['v', 'f', 's', 'm', 'k'], onKeyPress);
+    useKeyPress(['1', '2', '3', '4', 'q', 'w', 'e', 'r', 'd', 'k', 'Escape'], onKeyPress);
 
     return (
         <div className='bg-bgPrimary text-white h-full'>
@@ -102,13 +148,13 @@ const DashboardScreen: FunctionComponent = () => {
                         />
 
                         <Card
-                            title='String Methods'
+                            title='Strings'
                             desc='Strings can be manipulated with a few different methods'
                             content={stringContent}
                         />
 
                         <Card
-                            title='Array Methods'
+                            title='Arrays'
                             desc='Array can be manipulated with a few different methods'
                             content={arraysContent}
                         />
@@ -129,19 +175,19 @@ const DashboardScreen: FunctionComponent = () => {
                         />
 
                         <Card
-                            title='Number Methods'
+                            title='Numbers'
                             desc='Numbers can be manipulated with a few different methods'
                             content={numbersContent}
                         />
 
                         <Card
-                            title='Object Methods'
+                            title='Objects'
                             desc='Objects can be accessed with a few different methods'
                             content={objectsContent}
                         />
 
                         <Card
-                            title='Operators & Conditionals'
+                            title='Conditionals'
                             desc='Javascript introduces a few operators and conditional statements'
                             content={operatorsContent}
                         />

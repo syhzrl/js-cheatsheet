@@ -12,6 +12,21 @@ interface RefsContextInterface {
 
     numRef: React.MutableRefObject<HTMLDivElement | null> | undefined
     setNumRef: (ref: React.MutableRefObject<HTMLDivElement | null>) => void;
+
+    arrRef: React.MutableRefObject<HTMLDivElement | null> | undefined
+    setArrRef: (ref: React.MutableRefObject<HTMLDivElement | null>) => void;
+
+    objRef: React.MutableRefObject<HTMLDivElement | null> | undefined
+    setObjRef: (ref: React.MutableRefObject<HTMLDivElement | null>) => void;
+
+    opRef: React.MutableRefObject<HTMLDivElement | null> | undefined
+    setOpRef: (ref: React.MutableRefObject<HTMLDivElement | null>) => void;
+
+    iteRef: React.MutableRefObject<HTMLDivElement | null> | undefined
+    setIteRef: (ref: React.MutableRefObject<HTMLDivElement | null>) => void;
+
+    dateRef: React.MutableRefObject<HTMLDivElement | null> | undefined
+    setDateRef: (ref: React.MutableRefObject<HTMLDivElement | null>) => void;
 }
 
 const initialState: RefsContextInterface = {
@@ -26,6 +41,21 @@ const initialState: RefsContextInterface = {
 
     numRef: undefined,
     setNumRef: () => null,
+
+    arrRef: undefined,
+    setArrRef: () => null,
+
+    objRef: undefined,
+    setObjRef: () => null,
+
+    opRef: undefined,
+    setOpRef: () => null,
+
+    iteRef: undefined,
+    setIteRef: () => null,
+
+    dateRef: undefined,
+    setDateRef: () => null,
 };
 
 export const RefsContext = createContext<RefsContextInterface>(initialState);
@@ -42,6 +72,12 @@ const RefsProvider: FunctionComponent<RefsProviderProps> = (props: RefsProviderP
     const [stringRef, setStringRef] = useState<React.MutableRefObject<HTMLDivElement | null>>();
     const [numRef, setNumRef] = useState<React.MutableRefObject<HTMLDivElement | null>>();
 
+    const [arrRef, setArrRef] = useState<React.MutableRefObject<HTMLDivElement | null>>();
+    const [objRef, setObjRef] = useState<React.MutableRefObject<HTMLDivElement | null>>();
+    const [opRef, setOpRef] = useState<React.MutableRefObject<HTMLDivElement | null>>();
+    const [iteRef, setIteRef] = useState<React.MutableRefObject<HTMLDivElement | null>>();
+    const [dateRef, setDateRef] = useState<React.MutableRefObject<HTMLDivElement | null>>();
+
     const memoValue: RefsContextInterface = useMemo(() => ({
         varRef,
         setVarRef,
@@ -54,6 +90,21 @@ const RefsProvider: FunctionComponent<RefsProviderProps> = (props: RefsProviderP
 
         numRef,
         setNumRef,
+
+        arrRef,
+        setArrRef,
+
+        objRef,
+        setObjRef,
+
+        opRef,
+        setOpRef,
+
+        iteRef,
+        setIteRef,
+
+        dateRef,
+        setDateRef,
     }), [
         varRef,
         setVarRef,
@@ -66,6 +117,21 @@ const RefsProvider: FunctionComponent<RefsProviderProps> = (props: RefsProviderP
 
         numRef,
         setNumRef,
+
+        arrRef,
+        setArrRef,
+
+        objRef,
+        setObjRef,
+
+        opRef,
+        setOpRef,
+
+        iteRef,
+        setIteRef,
+
+        dateRef,
+        setDateRef,
     ]);
 
     return (
