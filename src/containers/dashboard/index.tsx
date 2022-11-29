@@ -15,6 +15,7 @@ import NavMenu from 'components/NavMenu';
 import Card from 'components/Card';
 import KeyboardShortcutModal from 'components/KeyboardShortcutModal';
 import arraysContent from 'assets/contents/Array';
+import objectsContent from 'assets/contents/Object';
 
 const DashboardScreen: FunctionComponent = () => {
     const {
@@ -122,6 +123,12 @@ const DashboardScreen: FunctionComponent = () => {
                             title='Number Methods'
                             desc='Numbers can be manipulated with a few different methods'
                             content={numbersContent}
+                        />
+
+                        <Card
+                            title='Object Methods'
+                            desc='Objects can be accessed with a few different methods'
+                            content={objectsContent}
                         />
                     </div>
                 </div>
