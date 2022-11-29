@@ -61,9 +61,8 @@ const NavMenu: FunctionComponent = () => {
         'Number Methods',
         'Array Methods',
         'Object Methods',
-        'Loops',
-        'Conditions',
-        'Conditional Statements',
+        'Operators & Conditionals',
+        'Iterations',
     ];
 
     return (
